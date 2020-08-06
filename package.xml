@@ -9,9 +9,10 @@
   <license>BSD 3-Clause</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-
+  <build_depend>catkin_simple</build_depend>
+ 
   <export>
-    <build_type>cmake</build_type>
+    <!-- <build_type>cmake</build_type> -->
   </export>
 
 </package>

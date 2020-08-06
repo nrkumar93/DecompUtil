@@ -5,18 +5,20 @@ project(decomp_util)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(BUILD_SHARED_LIBS ON)
 
+find_package(catkin_simple REQUIRED)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIRS} include)
 
 include(CTest)
 
-add_executable(test_seed_decomp test/test_seed_decomp.cpp)
-target_link_libraries(test_seed_decomp ${Boost_LIBRARIES})
-add_test(test_seed_decomp test_seed_decomp)
+add_executable(test_seed_DecompUtil test/test_seed_decomp.cpp)
+target_link_libraries(test_seed_DecompUtil ${Boost_LIBRARIES})
+add_test(test_seed_DecompUtil test_seed_DecompUtil)
 
 add_executable(test_line_segment test/test_line_segment.cpp)
 target_link_libraries(test_line_segment ${Boost_LIBRARIES})
@@ -40,3 +42,6 @@ install(TARGETS
 
 install(DIRECTORY include/decomp_basis include/decomp_geometry include/decomp_util
   DESTINATION include)
+
+cs_export()
+
